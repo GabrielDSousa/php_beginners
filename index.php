@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,16 +19,26 @@
 		}
 	</style>
 </head>
-<body>
-	<?php 
-		$name = "Dark Matter";
-		$read = true;
-		$message = "You haven't read $name";
 
-		if($read) {
-			$message = "You have read $name";
-		}
-	?>
-	<h1><?= $message ?>.</h1>
+<body>
+	<div>
+		<h1>Recommended Anime</h1>
+
+		<?php
+			$animes = [
+				'One Piece',
+				'Gundam Iron Bloded Orphans',
+				'Fullmetal Alchemist Brotherhood',
+				'Code Geass'
+			];
+		?>
+
+		<ul>
+			<?php foreach ($anime as $title) : ?>
+				<li><?= $title ?></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
 </body>
+
 </html>
