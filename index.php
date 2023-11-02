@@ -15,93 +15,112 @@
 			display: grid;
 			margin: 0;
 			place-items: center;
+			text-align: left;
 		}
+
 		li {
 			list-style: none;
 			margin: 0.8rem 0;
 			display: flex;
 			flex-direction: column;
-			text-align: left;
 		}
+
 		ul {
 			padding: 0;
 		}
+
 		li small {
 			font-size: 0.8rem;
 			color: #ccc;
+		}
+
+		section,
+		p {
+			border-bottom: #fff solid 1px;
+		}
+
+		p {
+			padding-bottom: 1em;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 0.8rem;
+		}
+
+		h2 {
+			font-size: 1.6rem;
+			margin-bottom: 0.8rem;
 		}
 	</style>
 </head>
 
 <body>
 	<?php
-		$anime = [
-			[
-				'title' => 'One Piece',
-				'year' => 1999,
-				'genre' => 'Action',
-				'writer' => 'Eiichiro Oda'
-			],
-			[
-				'title' =>'Gundam Iron Bloded Orphans',
-				'year' => 2015,
-				'genre' => 'Action',
-				'writer' => 'Mari Okada'
-			],
-			[
-				'title' => 'Fullmetal Alchemist Brotherhood',
-				'year' => 2009,
-				'genre' => 'Action',
-				'writer' => 'Hiromu Arakawa'
-			],
-			[
-				'title' => 'Code Geass',
-				'year' => 2006,
-				'genre' => 'Action',
-				'writer' => 'Goro Taniguchi'
-			],
-			[
-				'title' => 'Anohana',
-				'year' => 2011,
-				'genre' => 'Drama',
-				'writer' => 'Mari Okada'
-			]
-		];
+	$anime = [
+		[
+			"title" => "One Piece",
+			"year" => 1999,
+			"genre" => "Action",
+			"writer" => "Eiichiro Oda"
+		],
+		[
+			"title" => "Gundam Iron Bloded Orphans",
+			"year" => 2015,
+			"genre" => "Action",
+			"writer" => "Mari Okada"
+		],
+		[
+			"title" => "Fullmetal Alchemist Brotherhood",
+			"year" => 2009,
+			"genre" => "Action",
+			"writer" => "Hiromu Arakawa"
+		],
+		[
+			"title" => "Code Geass",
+			"year" => 2006,
+			"genre" => "Action",
+			"writer" => "Goro Taniguchi"
+		],
+		[
+			"title" => "Anohana",
+			"year" => 2011,
+			"genre" => "Drama",
+			"writer" => "Mari Okada"
+		]
+	];
 
-		function filterByWriter(array $anime, string $writer) {
-			$filtered = [];
-			foreach ($anime as $item) {
-				if ($item['writer'] === $writer) {
-					$filtered[] = $item;
-				}
-			}
-			return $filtered;
-		}
+	$filteredAnime = array_filter($anime, function ($item) {
+		return $item['writer'] === 'Mari Okada';
+	});
 	?>
 	<div>
-		<h1>Recommended Anime</h1>
+		<section name="recommended">
+			<h1>&#128250;Recommended Anime</h1>
+			<ul>
+				<?php foreach ($anime as $item) : ?>
+					<li>
+						<?= $item['title'] ?> - <?= $item['year'] ?>
+						<small><?= $item['genre'] ?> - <?= $item['writer'] ?></small>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
 
-		<ul>
-			<?php foreach ($anime as $item) : ?>
-				<li>
-					<?= $item['title'] ?> - <?= $item['year'] ?>
-					<small><?= $item['genre'] ?> - <?= $item['writer'] ?></small>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+		<section name="best-writer">
+			<h2>&#127775;Best writer: Mari Okada</h2>
+			<ul>
+				<?php foreach ($filteredAnime as $item) : ?>
+					<li>
+						<?= $item['title'] ?> - <?= $item['year'] ?>
+						<small><?= $item['genre'] ?> - <?= $item['writer'] ?></small>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
 
-		<h2>Best writer: Mari Okada</h2>
-		<ul>
-			<?php foreach (filterByWriter($anime, "Mari Okada") as $item) : ?>
-				<li>
-					<?= $item['title'] ?> - <?= $item['year'] ?>
-					<small><?= $item['genre'] ?> - <?= $item['writer'] ?></small>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+		<p>Currently re-watching: <?= $anime[0]['title'] ?></p>
 	</div>
-
-	<p>Currently re-watching: <?= $anime[0]['title']?></p>
 </body>
 
 </html>
