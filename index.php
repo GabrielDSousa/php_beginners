@@ -1,27 +1,9 @@
 <?php
 
-/*----------------------------------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See LICENSE in the project root for license information.
- *---------------------------------------------------------------------------------------*/
+require 'data.php';
 
-function sayHello($name) {
-	echo "Hello $name!";
-}
+$filteredAnime = array_filter($anime, function ($item) {
+	return $item['writer'] === 'Mari Okada';
+});
 
-?>
-
-<html>
-	<head>
-		<title>Visual Studio Code Remote :: PHP</title>
-	</head>
-	<body>
-		<?php 
-		
-		sayHello('remote world');
-			
-		phpinfo(); 
-			
-		?>
-	</body>
-</html>
+require 'index.view.php';
