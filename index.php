@@ -34,43 +34,68 @@
 </head>
 
 <body>
+	<?php
+		$anime = [
+			[
+				'title' => 'One Piece',
+				'year' => 1999,
+				'genre' => 'Action',
+				'writer' => 'Eiichiro Oda'
+			],
+			[
+				'title' =>'Gundam Iron Bloded Orphans',
+				'year' => 2015,
+				'genre' => 'Action',
+				'writer' => 'Mari Okada'
+			],
+			[
+				'title' => 'Fullmetal Alchemist Brotherhood',
+				'year' => 2009,
+				'genre' => 'Action',
+				'writer' => 'Hiromu Arakawa'
+			],
+			[
+				'title' => 'Code Geass',
+				'year' => 2006,
+				'genre' => 'Action',
+				'writer' => 'Goro Taniguchi'
+			],
+			[
+				'title' => 'Anohana',
+				'year' => 2011,
+				'genre' => 'Drama',
+				'writer' => 'Mari Okada'
+			]
+		];
+
+		function filterByWriter(array $anime, string $writer) {
+			$filtered = [];
+			foreach ($anime as $item) {
+				if ($item['writer'] === $writer) {
+					$filtered[] = $item;
+				}
+			}
+			return $filtered;
+		}
+	?>
 	<div>
 		<h1>Recommended Anime</h1>
-
-		<?php
-			$anime = [
-				[
-					'title' => 'One Piece',
-					'year' => 1999,
-					'genre' => 'Action',
-					'author' => 'Eiichiro Oda'
-				],
-				[
-					'title' =>'Gundam Iron Bloded Orphans',
-					'year' => 2015,
-					'genre' => 'Action',
-					'author' => 'Yoshiyuki Tomino'
-				],
-				[
-					'title' => 'Fullmetal Alchemist Brotherhood',
-					'year' => 2009,
-					'genre' => 'Action',
-					'author' => 'Hiromu Arakawa'
-				],
-				[
-					'title' => 'Code Geass',
-					'year' => 2006,
-					'genre' => 'Action',
-					'author' => 'Goro Taniguchi'
-				]
-			];
-		?>
 
 		<ul>
 			<?php foreach ($anime as $item) : ?>
 				<li>
 					<?= $item['title'] ?> - <?= $item['year'] ?>
-					<small><?= $item['genre'] ?> - <?= $item['author'] ?></small>
+					<small><?= $item['genre'] ?> - <?= $item['writer'] ?></small>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+
+		<h2>Best writer: Mari Okada</h2>
+		<ul>
+			<?php foreach (filterByWriter($anime, "Mari Okada") as $item) : ?>
+				<li>
+					<?= $item['title'] ?> - <?= $item['year'] ?>
+					<small><?= $item['genre'] ?> - <?= $item['writer'] ?></small>
 				</li>
 			<?php endforeach; ?>
 		</ul>
