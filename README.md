@@ -10,9 +10,7 @@ A **development container** is a running container with a well-defined tool/runt
 
 - **PHP Playground:** Use this repository as your personal PHP playground. Experiment with PHP code, test concepts, and explore new ideas in a controlled and isolated environment.
 
-## Getting Started
-
-## Setting up the development container
+## Getting Started - Setting up the development container
 
 ### GitHub Codespaces
 Follow these steps to open this sample in a Codespace:
