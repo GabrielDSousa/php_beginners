@@ -1,6 +1,6 @@
 # PHP Beginners Class DevContainer
 
-This repository serves as a development container (DevContainer) to PHP for beginners class provided by [Laracats](https://laracasts.com/series/php-for-beginners-2023-edition), based on the [vscode-remote-try-php](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-php&type=Repositories) sample project. I used this setup as a sandbox environment during my PHP beginners class to practice and experiment with PHP concepts.
+This repository serves as a development container (DevContainer) to PHP for beginners class provided by [Laracasts](https://laracasts.com/series/php-for-beginners-2023-edition), based on the [vscode-remote-try-php](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-php&type=Repositories) sample project. I used this setup as a sandbox environment during my PHP beginners class to practice and experiment with PHP concepts.
 
 A **development container** is a running container with a well-defined tool/runtime stack and its prerequisites. You can try out development containers with **[GitHub Codespaces](https://github.com/features/codespaces)** or **[Visual Studio Code Dev Containers](https://aka.ms/vscode-remote/containers)**.
 
@@ -31,6 +31,8 @@ If you already have VS Code and Docker installed, follow these steps to open thi
    - Clone this repository to your local filesystem.
    - Press <kbd>F1</kbd> and select the **Dev Containers: Open Folder in Container...** command.
    - Select the cloned copy of this folder, wait for the container to start, and try things out!
+   - To access through web go to terminal of the container and type `php -S 0.0.0.0:8000` and then go to browser and type `localhost:8000`.
+   - To use database go to terminal and start mysql by typing `mysql.server start` and now you can connect through `localhost:3306` using your preferable client.
 
 ## Contribution
 
