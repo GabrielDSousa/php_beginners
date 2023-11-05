@@ -28,6 +28,9 @@
 			"label": "Hello Remote World",
 			"onAutoForward": "notify"
 		}
+	},
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/mysql-homebrew:1": {}
 	}
 
 	// Use 'postCreateCommand' to run commands after the container is created.
