@@ -19,3 +19,5 @@ function routeToController($uri, $routes) {
         abort();
     }
 }
+
+routeToController($uri, $routes);
